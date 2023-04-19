@@ -1,0 +1,53 @@
+{
+  "name": "astrotest",
+  "version": "0.0.0",
+  "private": true,
+  "scripts": {
+    "start": "cross-env AWS_PROFILE=mine sst dev --stage dev --region=us-west-1",
+    "deploy:mine": "cross-env AWS_PROFILE=mine sst deploy --stage dev --region=us-west-1",
+    "build": "cross-env AWS_PROFILE=mine sst build --stage dev --region=us-west-1",
+    "remove": "cross-env AWS_PROFILE=mine sst remove --stage dev --region=us-west-1",
+    "start:web": "pnpm run -C web dev",
+    "typecheck": "tsc --noEmit",
+    "lint": "pnpm run --recursive lint && pnpm lint:toplevel",
+    "lint:toplevel": "eslint --ext .js,.ts,.tsx stacks",
+    "build:web": "pnpm run -C web build"
+  },
+  "devDependencies": {
+    "@tsconfig/node16": "^1.0.3",
+    "@types/node": "^18.15.3",
+    "aws-cdk-lib": "2.72.1",
+    "constructs": "10.1.156",
+    "cross-env": "^7.0.3",
+    "eslint-import-resolver-typescript": "^3.5.3",
+    "eslint-plugin-import": "^2.27.5",
+    "sst": "2.5.1",
+    "typescript": "^4.9.5",
+    "vitest": "^0.25.8"
+  },
+  "dependencies": {
+    "@aws-sdk/types": "^3.292.0",
+    "@typescript-eslint/eslint-plugin": "^5.55.0",
+    "@typescript-eslint/parser": "^5.55.0",
+    "aws-lambda": "^1.0.7",
+    "axios": "^1.3.4",
+    "chalk": "^4.1.2",
+    "dotenv": "^16.0.3",
+    "eslint": "^8.36.0",
+    "eslint-plugin-jsx-a11y": "^6.7.1",
+    "eslint-plugin-vue": "^9.9.0",
+    "fs-extra": "^11.1.0",
+    "prettier": "^2.8.4",
+    "vite": "^3.2.5",
+    "vite-tsconfig-paths": "^3.6.0"
+  },
+  "workspaces": [
+    "web",
+    "./common/**"
+  ],
+  "pnpm": {
+    "overrides": {
+      "chalk": "^4.1.2"
+    }
+  }
+}

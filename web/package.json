@@ -1,0 +1,16 @@
+{
+  "name": "web",
+  "type": "module",
+  "version": "0.0.1",
+  "scripts": {
+    "dev": "AWS_PROFILE=mine sst bind astro dev",
+    "build": "astro build",
+    "@common/types": "workspace:*"
+  },
+  "dependencies": {
+    "astro": "^2.2.0",
+    "astro-sst": "^2.5.2",
+    "axios": "^1.3.5",
+    "sass": "^1.60.0"
+  }
+}
